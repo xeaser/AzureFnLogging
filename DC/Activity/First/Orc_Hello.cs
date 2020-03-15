@@ -1,8 +1,6 @@
 ﻿using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading;
 
 namespace loggerInject.DC.Activity.First
 {
@@ -18,24 +16,8 @@ namespace loggerInject.DC.Activity.First
         [FunctionName("Orc_Hello")]
         public string SayHello([ActivityTrigger] string name)
         {
-            using (log.BeginScope(new Dictionary<string, object>
-            {
-                ["name"] = name
-            }))
-            {
-                try
-                {
-                    int data = 0;
-                    int d = 0;
-                    var x = data / d;
-                }
-                catch (Exception ex)
-                {
-                    log.LogError(ex, $"zero by zero from name: {name}");
-                }
-
-                return $"Hello {name}!";
-            }
+            Thread.Sleep(300000);
+            return $"Hello {name}!";
         }
     }
 }

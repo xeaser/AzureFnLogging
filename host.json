@@ -6,11 +6,5 @@
       "loggerInject.DC": "Information",
       "default": "None"
     }
-  },
-  "applicationInsights": {
-    "samplingExcludedTypes": "Request",
-    "samplingSettings": {
-      "isEnabled": true      
-    }
   }
 }
